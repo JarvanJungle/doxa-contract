@@ -1,0 +1,1 @@
+alter table address alter column address_first_line type varchar(200) using address_first_line::varchar(200);

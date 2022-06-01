@@ -1,0 +1,12 @@
+{
+  "name": "Doxa Connex 2.0 Contract Management",
+  "version": "2.0.0",
+  "description": "APIs for Contract Management",
+  "title": "Doxa Connex 2.0 ",
+  "url": "",
+  "template": {
+    "withCompare": true,
+    "withGenerator": true,
+    "forceLanguage": "en"
+  }
+}

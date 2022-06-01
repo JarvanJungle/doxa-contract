@@ -1,0 +1,109 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: contract-deployment
+  name: contract-deployment
+spec:
+  replicas: {replicas}
+  selector:
+    matchLabels:
+      app: contract-deployment
+  template:
+    metadata:
+      labels:
+        app: contract-deployment
+    spec:
+      containers:
+        - image: {container_image}
+          name: contract
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+          imagePullPolicy: Always
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "kubernetes"
+                #            - name: SPRING_PROFILES_ACTIVE
+                #              valueFrom:
+                #                configMapKeyRef:
+                #                  name: connex-conf
+              #                  key: SPRING_PROFILES_ACTIVE
+            - name: ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: connex-conf
+                  key: ENV
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: connex-conf
+                  key: DB_HOST
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: connex-conf
+                  key: DB_PORT
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: connex-conf
+                  key: DB_USER
+            - name: DB_PWD
+              valueFrom:
+                secretKeyRef:
+                  name: connex-secrets
+                  key: DB_PWD
+            # Rabbit mq config
+            - name: RABBIT_MQ_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: connex-conf
+                  key: RABBIT_HOSTNAME
+            # rabbitMQ PORT
+            - name: RABBIT_MQ_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: connex-conf
+                  key: RABBIT_PORT
+            # rabbitMQ user
+            - name: RABBIT_MQ_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: connex-conf
+                  key: RABBITMQ_USERNAME
+            # rabbitMQ password
+            - name: RABBIT_MQ_PWD
+              valueFrom:
+                secretKeyRef:
+                  name: connex-secrets
+                  key: RABBIT_MQ_PWD
+            # Virtual host
+            - name: VHOST
+              valueFrom:
+                configMapKeyRef:
+                  name: connex-conf
+                  key: VHOST
+            # Redis config
+            - name: REDIS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: connex-conf
+                  key: REDIS_HOST
+            - name: REDIS_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: connex-conf
+                  key: REDIS_PORT
+            # Email Notification config
+            - name: EMAIL_HYPERLINK_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: connex-conf
+                  key: EMAIL_HYPERLINK_HOST

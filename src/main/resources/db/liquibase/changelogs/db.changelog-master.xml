@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+  http://www.liquibase.org/xml/ns/pro
+  http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+<!--    <include  file="db/liquibase/liquibase-base.xml"/>-->
+    <changeSet id="1" author="andrew">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/0.0-contract-request.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="2" author="andrew">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/0.1-contract.sql"></sqlFile>
+    </changeSet>
+<!--    <changeSet id="3" author="aditya">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/0.2-update-contract.sql"></sqlFile>
+    </changeSet> -->
+    <changeSet id="3" author="thibaut">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/0.3-refactor-approval.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="4" author="thibaut">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/0.4-document-external.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="5" author="thibaut">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/0.5-contractrequest-addresschange.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="6" author="thibaut">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/0.6-contract-remove-constraint.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="7" author="thibaut">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/0.7-contract-document-boolean.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="8" author="thibaut">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/0.8-adding-missing-item-columns.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="9" author="liying">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/0.9-add-rfq-in-contract.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="10" author="liying">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/1.0-drop-not-null-contract.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="11" author="liying">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/1.1-item-note.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="12" author="liying">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/1.2-add-project-code.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="13" author="liying">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/1.3-item-description.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="14" author="liying">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/1.4-add-note.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="15" author="daniel">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/1.5-increase-address_first_line-length.sql"></sqlFile>
+    </changeSet>
+    <changeSet id="16" author="cuongnh">
+        <sqlFile dbms="postgresql" path="db/liquibase/changelogs/04-03-contract-main-document.sql"></sqlFile>
+    </changeSet>
+</databaseChangeLog>

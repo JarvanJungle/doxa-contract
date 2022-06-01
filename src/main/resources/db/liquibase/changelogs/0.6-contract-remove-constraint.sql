@@ -1,0 +1,1 @@
+alter table contract alter column nature_of_contract drop not null;
